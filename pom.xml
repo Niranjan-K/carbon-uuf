@@ -51,9 +51,9 @@
         <module>features/org.wso2.carbon.uuf.renderablecreator.html.feature</module>
         <module>features/org.wso2.carbon.uuf.httpconnector.msf4j.feature</module>
         <module>samples</module>
-        <module>tests</module>
         <!--<module>perf-benchmark/tests/handlebars-n-msf4j/org.wso2.carbon.uuf.sample.perf-bnchmrk</module>-->
         <module>product</module>
+        <!--<module>tests</module>-->
     </modules>
 
     <dependencyManagement>
@@ -557,9 +557,9 @@
         <carbon.uuf.version>1.0.0-SNAPSHOT</carbon.uuf.version>
 
         <!-- UUF -->
-        <carbon.kernel.version>5.1.0</carbon.kernel.version>
+        <carbon.kernel.version>5.2.0-m3</carbon.kernel.version>
         <carbon.kernel.version.range>[5.0,6)</carbon.kernel.version.range>
-        <carbon.deployment.version>5.0.0</carbon.deployment.version>
+        <carbon.deployment.version>5.1.0-SNAPSHOT</carbon.deployment.version>
         <carbon.jndi.version>1.0.0</carbon.jndi.version>
         <carbon.cache.version>1.0.0</carbon.cache.version>
         <javax.cache-api.version>1.0.0</javax.cache-api.version>
@@ -611,8 +611,8 @@
         <carbon.security.userstore.jdbc.version>1.0.0-m2</carbon.security.userstore.jdbc.version>
 
         <!-- Maven Plugins -->
-        <carbon-uuf-maven-plugin.version>1.0.0-m11</carbon-uuf-maven-plugin.version>
-        <carbon.feature.plugin.version>2.0.1</carbon.feature.plugin.version>
+        <carbon-uuf-maven-plugin.version>1.0.0-SNAPSHOT</carbon-uuf-maven-plugin.version>
+        <carbon.feature.plugin.version>3.0.0</carbon.feature.plugin.version>
         <maven.bundle.plugin.version>2.5.0</maven.bundle.plugin.version>
 
         <!-- Test -->

@@ -233,7 +233,6 @@
             <plugin>
                 <groupId>org.wso2.carbon.maven</groupId>
                 <artifactId>carbon-feature-plugin</artifactId>
-                <version>${carbon.feature.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>p2-repo-generation</id>
@@ -340,8 +339,7 @@
                             <goal>publish-product</goal>
                         </goals>
                         <configuration>
-                            <productConfigurationFile>${basedir}/carbon.product
-                            </productConfigurationFile>
+                            <productConfigurationFile>${basedir}/carbon.product</productConfigurationFile>
                             <executable>
                                 ${basedir}/target/org.eclipse.equinox.executable_3.5.0.v20110530-7P7NFUFFLWUl76mart
                             </executable>
@@ -352,16 +350,15 @@
                         <id>materialize-product</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>generate-profile</goal>
+                            <goal>generate-runtime</goal>
                         </goals>
                         <configuration>
-                            <productConfigurationFile>${basedir}/carbon.product
-                            </productConfigurationFile>
+                            <productConfigurationFile>${basedir}/carbon.product</productConfigurationFile>
                             <repositoryURL>file:${basedir}/target/p2-repo</repositoryURL>
                             <targetPath>
-                                file:${basedir}/target/wso2carbon-kernel-${carbon.kernel.version}/osgi
+                                file:${basedir}/target/wso2carbon-kernel-${carbon.kernel.version}/wso2
                             </targetPath>
-                            <profile>profiles/default</profile>
+                            <runtime>default</runtime>
                         </configuration>
                     </execution>
                     <execution>
@@ -371,12 +368,12 @@
                             <goal>install</goal>
                         </goals>
                         <configuration>
-                            <profile>profiles/default</profile>
+                            <runtime>default</runtime>
                             <repositoryURL>file:${basedir}/target/p2-repo</repositoryURL>
                             <destination>
-                                ${basedir}/target/wso2carbon-kernel-${carbon.kernel.version}/osgi
+                                ${basedir}/target/wso2carbon-kernel-${carbon.kernel.version}/wso2
                             </destination>
-                            <deleteOldProfileFiles>true</deleteOldProfileFiles>
+                            <deleteOldRuntimeFiles>true</deleteOldRuntimeFiles>
                             <features>
                                 <feature>
                                     <id>org.wso2.carbon.kernel.feature.group</id>
@@ -472,7 +469,7 @@
                         <phase>package</phase>
                         <configuration>
                             <tasks>
-                                <replace dir="target/wso2carbon-kernel-${carbon.kernel.version}/osgi" token="false" value="true">
+                                <replace dir="target/wso2carbon-kernel-${carbon.kernel.version}" token="false" value="true">
                                     <include name="**/bundles.info" />
                                 </replace>
                             </tasks>
@@ -547,6 +544,13 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
